@@ -11,9 +11,15 @@ const Mission = () => {
 
   const dispatch = useDispatch();
 
+  //   useEffect(() => {
+  //     dispatch(fetchMissions());
+  //   }, [dispatch]);
+
   useEffect(() => {
-    dispatch(fetchMissions());
-  }, [dispatch]);
+    if (status === 'idle') {
+      dispatch(fetchMissions());
+    }
+  }, [status, dispatch]);
 
   return (
     <div>
@@ -31,7 +37,7 @@ const Mission = () => {
                 <h4>
                   {mission.mission_name}
                 </h4>
-                <p>{mission.description}</p>
+                <p>{mission.description.substring(0, 100)}</p>
                 <button type="button">Not a Member</button>
                 <button type="button">Join Mission</button>
               </li>
