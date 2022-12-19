@@ -2,11 +2,12 @@
 import { configureStore } from '@reduxjs/toolkit';
 
 // import reducers
-// import bookReducer from './books/books';
+import missionReducer from './Mission/missionSlice';
 
 const store = configureStore({
   reducer: {
-    // booksReducer, // Add mssion reducer
+    // Add mssion reducer
+    missionReducer,
   },
 });
 
