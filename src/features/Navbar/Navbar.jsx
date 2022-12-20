@@ -14,8 +14,8 @@ const Navbar = () => {
     },
     {
       id: 2,
-      path: '/mission',
-      text: 'Mission',
+      path: '/missions',
+      text: 'Missions',
     },
     {
       id: 3,
