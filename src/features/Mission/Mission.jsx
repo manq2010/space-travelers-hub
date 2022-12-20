@@ -1,8 +1,8 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 // Import membership reducer:
 import styled from 'styled-components';
-import { membership } from './missionSlice';
+import { filterMembership, fetchMissions } from './missionSlice';
 
 const MissionWrapper = styled.div`
 
@@ -51,23 +51,27 @@ display: flex;
 `;
 
 const Mission = () => {
-  const { isMember, missions, status } = useSelector((state) => state.missionReducer);
+  const { missions } = useSelector((state) => state.missionReducer);
 
-  console.log(isMember);
-  console.log(membership);
-  console.log(status);
+  // console.log(isMember);
+  // console.log(membership);
+  // // console.log(filterMembership);
+  // console.log(status);
 
-  //   const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-  //   useEffect(() => {
+  // const dispatch = useDispatch();
+  // dispatch.dispatch(filterMembership('9D1B7E0'));
+
+  useEffect(() => {
+    dispatch(fetchMissions());
+  }, [dispatch]);
+
+  // useEffect(() => {
+  //   if (status === 'idle') {
   //     dispatch(fetchMissions());
-  //   }, [dispatch]);
-
-  //   useEffect(() => {
-  //     if (status === 'idle') {
-  //       dispatch(fetchMissions());
-  //     }
-  //   }, [status, dispatch]);
+  //   }
+  // }, [status, dispatch]);
 
   return (
     <MissionWrapper>
@@ -87,10 +91,30 @@ const Mission = () => {
                 </MissionName>
                 <MissionDescription>{mission.description.substring(0, 200)}</MissionDescription>
                 <StatusBtnContainer>
-                  <ButtonMember type="button">Not a Member</ButtonMember>
+                  {
+                    mission.reserved ? (
+                      <ButtonMember type="button">Not a Member</ButtonMember>
+                    ) : (
+                      <ButtonMember type="button">Active Member</ButtonMember>
+                    )
+                  }
                 </StatusBtnContainer>
                 <StatusBtnContainer>
-                  <ButtonJoin type="button">Join Mission</ButtonJoin>
+                  {
+                    mission.reserved ? (
+
+                      <ButtonJoin type="button">Leave Mission</ButtonJoin>
+                    ) : (
+                      <ButtonJoin
+                        type="button"
+                        onClick={() => {
+                          dispatch(filterMembership(mission.mission_id));
+                        }}
+                      >
+                        Join Mission
+                      </ButtonJoin>
+                    )
+                  }
                 </StatusBtnContainer>
               </MissionList>
             ))
