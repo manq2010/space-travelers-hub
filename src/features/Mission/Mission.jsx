@@ -1,25 +1,26 @@
-import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { fetchMissions } from './missionSlice';
+import React from 'react';
+import { useSelector } from 'react-redux';
+// Import membership reducer:
+import { membership } from './missionSlice';
 
 const Mission = () => {
   const { isMember, missions, status } = useSelector((state) => state.missionReducer);
 
   console.log(isMember);
-  console.log(missions);
+  console.log(membership);
   console.log(status);
 
-  const dispatch = useDispatch();
+  //   const dispatch = useDispatch();
 
   //   useEffect(() => {
   //     dispatch(fetchMissions());
   //   }, [dispatch]);
 
-  useEffect(() => {
-    if (status === 'idle') {
-      dispatch(fetchMissions());
-    }
-  }, [status, dispatch]);
+  //   useEffect(() => {
+  //     if (status === 'idle') {
+  //       dispatch(fetchMissions());
+  //     }
+  //   }, [status, dispatch]);
 
   return (
     <div>

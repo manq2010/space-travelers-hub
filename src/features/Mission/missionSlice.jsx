@@ -16,9 +16,15 @@ export const fetchMissions = createAsyncThunk(
   'missions/fetchMissions',
   async () => {
     const response = await axios.get('/missions');
-    const missions = Object.keys(response.data).map((key) => ({
+    const missionsArray = Object.keys(response.data).map((key) => ({
       mission_id: key,
       ...response.data[key],
+    }));
+    const missions = missionsArray.map((mission) => ({
+      mission_id: mission.mission_id,
+      mission_name: mission.mission_name,
+      description: mission.description,
+      reserved: 'false',
     }));
     return missions.slice().sort((a, b) => a.mission_id - b.mission_id);
   },
@@ -30,11 +36,11 @@ const missionSlice = createSlice({
   initialState, // Define initial state
   reducers: {
     // Define reducers
-    // addMission: (state) => {
-    //   state.missions = [...state.missions];
-    // },
+    filterMembership: (state, action) => {
+      state.missions = action.payload;
+    },
     membership: (state) => {
-      state.isMember = !state.isMember;
+      state.missions.reserved = !state.state.missions.reserved;
     },
   },
   extraReducers: (builder) => {
