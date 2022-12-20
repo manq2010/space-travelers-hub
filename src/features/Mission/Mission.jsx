@@ -11,7 +11,7 @@ const MissionWrapper = styled.div`
 const MissionList = styled.li`
 list-style: none;
 display: grid;
-grid-template-columns: 1fr 2fr 1fr 1fr;
+grid-template-columns: 150px 2fr 150px 100px;
 margin: 0;
 border: 1px solid gray;
 `;
