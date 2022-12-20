@@ -1,9 +1,15 @@
-import React from "react";
+import React from 'react';
 
-const Rocket = () => {
-    return (
-        <div>Rockets</div>
-    )
-}
+const Rockets = () => {
 
-export default Rocket;
+  return (
+    <div>
+        <ul>
+            <li></li>
+        </ul>
+      
+    </div>
+  );
+};
+
+export default Rockets;
