@@ -1,8 +1,10 @@
-import React, { memo, useEffect, useState } from 'react';
+import React, { memo, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import styled from 'styled-components';
 // Import joinMission, leaveMission reducers:
-import { joinMission, leaveMission, fetchMissions } from './missionSlice';
+import {
+  joinMission, leaveMission, fetchMissions, showMoreDiscription,
+} from './missionSlice';
 
 const MissionWrapper = styled.div`
 
@@ -77,23 +79,9 @@ const Mission = () => {
   // Get missions from Redux store:
   const missions = useSelector((state) => state.missionReducer.missions);
   const missionsStatus = useSelector((state) => state.missionReducer.status);
-  const [showMore, SetShowMore] = useState(true);
-
-  console.log(missionsStatus);
-
-  // console.log(membership);
-  // // console.log(filterMembership);
-  // console.log(status);
 
   // Prepare Redux dispatch method:
   const dispatch = useDispatch();
-
-  // const dispatch = useDispatch();
-  // dispatch.dispatch(filterMembership('9D1B7E0'));
-
-  // useEffect(() => {
-  //   dispatch(fetchMissions());
-  // }, [dispatch]);
 
   useEffect(() => {
     if (missionsStatus === 'idle') {
@@ -101,32 +89,13 @@ const Mission = () => {
     }
   }, [missionsStatus, dispatch]);
 
-  // if (missions.discription.length >= 200) {
-  //   content = missions.discription.substring(0, 200);
-  // } else {
-  //   content = missions.discription;
-  // }
-
   return (
     <MissionWrapper>
 
       <MissionUL>
         <MissionList>
           <MissionName>Mission</MissionName>
-          <HeaderDescription>
-            <span>
-              Description
-            </span>
-            <span>
-              {
-              showMore ? (
-                <button type="button" onClick={() => SetShowMore(!showMore)}>showMore</button>
-              ) : (
-                <button type="button" onClick={() => SetShowMore(!showMore)}>showLess</button>
-              )
-            }
-            </span>
-          </HeaderDescription>
+          <HeaderDescription>Description</HeaderDescription>
           <Header>Status</Header>
           <Header />
         </MissionList>
@@ -137,14 +106,40 @@ const Mission = () => {
                   {mission.mission_name}
                 </MissionName>
                 <MissionDescription>
-                  {showMore ? (
+                  {mission.toogleShow ? (
                     <InnerDescription>
-                      {mission.description.substring(0, 200)}
-                      ...
+                      <span>
+                        {mission.description.substring(0, 200)}
+                        ...
+                      </span>
+                      <span>
+                        <button
+                          type="button"
+                          onClick={() => {
+                            dispatch(showMoreDiscription(mission.mission_id));
+                          }}
+                        >
+                          showMore
+
+                        </button>
+                      </span>
                     </InnerDescription>
                   ) : (
                     <InnerDescription>
-                      {mission.description}
+                      <span>
+                        {mission.description}
+                      </span>
+                      <span>
+                        <button
+                          type="button"
+                          onClick={() => {
+                            dispatch(showMoreDiscription(mission.mission_id));
+                          }}
+                        >
+                          showLess
+
+                        </button>
+                      </span>
                     </InnerDescription>
                   )}
 
