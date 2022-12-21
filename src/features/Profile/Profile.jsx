@@ -4,7 +4,8 @@ import { useSelector } from 'react-redux';
 const Profile = () => {
   const { missions } = useSelector((state) => state.missionReducer);
 
-  const joinedMission = missions.filter((mission) => mission.reseverd === true);
+  const joinedMission = missions.filter((mission) => mission.reserved === false);
+
   return (
     <div>
       <div className="mission-profile">

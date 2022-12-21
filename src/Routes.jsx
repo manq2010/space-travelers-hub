@@ -7,11 +7,13 @@ import Navbar from './features/Navbar/Navbar';
 // Pages
 import NotFoundPage from './pages/NotFoundPage';
 import MissionPage from './pages/MissionPage';
+import MyProfilePage from './pages/MyProfilePage';
 
 const AppRoutes = () => (
   <Routes>
     <Route path="/" element={<Navbar />}>
       <Route exact path="/missions" element={<MissionPage />} />
+      <Route exact path="/myprofile" element={<MyProfilePage />} />
     </Route>
     <Route path="*" element={<NotFoundPage />} />
   </Routes>
