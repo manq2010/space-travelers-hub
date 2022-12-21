@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 // Import membership reducer:
 import styled from 'styled-components';
-import { filterMembership, fetchMissions } from './missionSlice';
+import { joinMission, leaveMission, fetchMissions } from './missionSlice';
 
 const MissionWrapper = styled.div`
 
@@ -95,7 +95,14 @@ const Mission = () => {
                     mission.reserved ? (
                       <ButtonMember type="button">Not a Member</ButtonMember>
                     ) : (
-                      <ButtonMember type="button">Active Member</ButtonMember>
+                      <ButtonMember
+                        type="button"
+                        onClick={() => {
+                          dispatch(leaveMission(mission.mission_id));
+                        }}
+                      >
+                        Active Member
+                      </ButtonMember>
                     )
                   }
                 </StatusBtnContainer>
@@ -108,7 +115,7 @@ const Mission = () => {
                       <ButtonJoin
                         type="button"
                         onClick={() => {
-                          dispatch(filterMembership(mission.mission_id));
+                          dispatch(joinMission(mission.mission_id));
                         }}
                       >
                         Join Mission
