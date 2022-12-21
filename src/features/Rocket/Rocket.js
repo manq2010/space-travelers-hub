@@ -12,17 +12,16 @@ const Rockets = () => {
 
   return (
     <div>
-      {rockets.map((rocket) => {
-        <div>
-        <img src={rocket.flickrImages} alt="rocket" />
-        <div>
-          <h1>{rocket.name}</h1>
-          <p>{rocket.description}</p>
-          <button>Reserve</button>
+      {rockets.map((rocket) => (
+        <div key={rocket.id}>
+          <img src={rocket.flickrImages} alt="rocket" />
+          <div>
+            <h1>{rocket.name}</h1>
+            <p>{rocket.description}</p>
+            <button type="button">Reserve</button>
+          </div>
         </div>
-      </div>
-      })}
-      
+      ))}
     </div>
   );
 };
