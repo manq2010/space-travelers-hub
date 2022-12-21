@@ -3,8 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 const LogoContainer = styled.h1`
-  display: none;
-
+  // display: none;
+  display: flex;
   font-family: "Montserrat",sans-serif;
   color: #0290ff;
   // margin-top: 2.5rem;
@@ -21,17 +21,20 @@ const LogoImage = styled.img`
   // margin-top: 3rem;
   height: 100px;
   width: 100px;
-  border: 1px red solid;
   align-items: center;
   margin-right: 0.5rem;
 `;
 
 const LogoText = styled.h3`
-display: flex;
+display: none;
 font-size: 1.2rem;
 justify-content: center;
 align-items: center;
-border: 1px red solid;
+
+@media (min-width: 768px) {
+  display: flex;
+}
+
 `;
 
 const Logo = () => {

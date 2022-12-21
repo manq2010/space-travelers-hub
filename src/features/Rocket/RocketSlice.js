@@ -4,7 +4,7 @@ const GET_ROCKET = 'spaceTravellerHub/rockets/GET_ROCKET';
 
 export const getRocket = (payload) => ({ type: GET_ROCKET, payload });
 
-const url = 'https://api.spacexdata.com/v3/rockets';
+const url = 'https://api.spacexdata.com/v3/';
 
 export const fetchRocket = () => async (dispatch) => {
   const response = await axios.get(url);

@@ -1,51 +1,34 @@
-import React, { useState } from 'react';
-import { MdClose } from 'react-icons/md';
-import { FiMenu } from 'react-icons/fi';
+import React from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
 import styled from 'styled-components';
 import Logo from '../Logo/Logo';
 // import Footer from '../Footer/Footer';
 
-const Button = styled.button`
-  display: block;
-  width: fit-content;
-  margin: 1rem 0 1rem 4%;
-  cursor: pointer;
-  z-index: 2;
-  color: #3fffd2;
+// const Button = styled.button`
+//   display: block;
+//   width: fit-content;
+//   margin: 1rem 0 1rem 4%;
+//   cursor: pointer;
+//   z-index: 2;
+//   color: #3fffd2;
 
-@media (min-width: 768px) {
-  display: none;
-}
-`;
+// @media (min-width: 768px) {
+//   display: none;
+// }
+// `;
 
 const NavBar = styled.nav`
 display: flex;
-flex-direction: column;
-justify-content: center;
+flex-direction: row;
+justify-content: space-around;
 height: 10rem;
-align-items: space-around;
+align-items: center;
 `;
 
 const MenuNavUL = styled.ul`
   list-style: none;
-  display: none;
   position: relative;
   color: #121212;
-
-  &.showMenu {
-    display: block;
-    position: fixed;
-    margin-top: 0;
-    padding-top: 4rem;
-    left: 0;
-    width: 100%;
-    background: #0290ff;
-    height: 100vh;
-    z-index: 1;
-  }
-
-  @media (min-width: 768px) {
     display: flex;
     gap: 1rem;
     margin-top: 0;
@@ -58,15 +41,6 @@ const MenuNavUL = styled.ul`
     color: #121212;
     letter-spacing: 1.9px;
 
-    &.showMenu {
-      display: none
-    }
-  }
-`;
-
-const Links = styled.div`
-  display: flex;
-  gap: 1rem;
 `;
 
 const MenuLI = styled.li`
@@ -97,38 +71,18 @@ const Navbar = () => {
       text: 'My Profile',
     },
   ];
-
-  const [navbarOpen, setNavbarOpen] = useState(false);
-
-  const handleToggle = () => {
-    setNavbarOpen((prev) => !prev);
-  };
-
-  const closeMenu = () => {
-    setNavbarOpen(false);
-  };
-
   return (
     <>
       <NavBar>
-        <Button type="button" onClick={handleToggle}>
-          {navbarOpen ? (
-            <MdClose style={{ color: '#fff', width: '30px', height: '30px' }} />
-          ) : (
-            <FiMenu style={{ color: '#7b7b7b', width: '30px', height: '30px' }} />
-          )}
-        </Button>
-        <MenuNavUL className={`${navbarOpen ? 'showMenu' : ''}`}>
-          <Logo />
-          <Links>
-            {links.map((link) => (
-              <MenuLI key={link.id} onClick={() => closeMenu()} aria-hidden="true">
-                <NavLink data-testid={link.text} to={link.path}>
-                  {link.text}
-                </NavLink>
-              </MenuLI>
-            ))}
-          </Links>
+        <Logo />
+        <MenuNavUL>
+          {links.map((link) => (
+            <MenuLI key={link.id} aria-hidden="true">
+              <NavLink data-testid={link.text} to={link.path}>
+                {link.text}
+              </NavLink>
+            </MenuLI>
+          ))}
         </MenuNavUL>
       </NavBar>
       <Outlet />
