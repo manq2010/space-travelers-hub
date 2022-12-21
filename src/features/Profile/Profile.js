@@ -23,9 +23,9 @@ padding: 1rem;
 `;
 
 const Profile = () => {
-  const { missions } = useSelector((state) => state.missionReducer);
+  const missions = useSelector((state) => state.missionReducer.missions);
 
-  const joinedMission = missions.filter((mission) => mission.reserved === false);
+  const joinedMission = missions.filter((mission) => mission.reserved === true);
 
   return (
     <ProfileContainer>

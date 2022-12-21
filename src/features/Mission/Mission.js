@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { memo, useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-// Import membership reducer:
 import styled from 'styled-components';
+// Import joinMission, leaveMission reducers:
 import { joinMission, leaveMission, fetchMissions } from './missionSlice';
 
 const MissionWrapper = styled.div`
@@ -74,28 +74,32 @@ border-right: 2px solid gray;
 `;
 
 const Mission = () => {
-  const { missions } = useSelector((state) => state.missionReducer);
+  // Get missions from Redux store:
+  const missions = useSelector((state) => state.missionReducer.missions);
+  const missionsStatus = useSelector((state) => state.missionReducer.status);
   const [showMore, SetShowMore] = useState(true);
 
-  // console.log(isMember);
+  console.log(missionsStatus);
+
   // console.log(membership);
   // // console.log(filterMembership);
   // console.log(status);
 
+  // Prepare Redux dispatch method:
   const dispatch = useDispatch();
 
   // const dispatch = useDispatch();
   // dispatch.dispatch(filterMembership('9D1B7E0'));
 
-  useEffect(() => {
-    dispatch(fetchMissions());
-  }, [dispatch]);
-
   // useEffect(() => {
-  //   if (status === 'idle') {
-  //     dispatch(fetchMissions());
-  //   }
-  // }, [status, dispatch]);
+  //   dispatch(fetchMissions());
+  // }, [dispatch]);
+
+  useEffect(() => {
+    if (missionsStatus === 'idle') {
+      dispatch(fetchMissions());
+    }
+  }, [missionsStatus, dispatch]);
 
   // if (missions.discription.length >= 200) {
   //   content = missions.discription.substring(0, 200);
@@ -135,7 +139,7 @@ const Mission = () => {
                 <MissionDescription>
                   {showMore ? (
                     <InnerDescription>
-                      {mission.description.substring(0, 100)}
+                      {mission.description.substring(0, 200)}
                       ...
                     </InnerDescription>
                   ) : (
@@ -148,15 +152,14 @@ const Mission = () => {
                 <StatusBtnContainer>
                   {
                     mission.reserved ? (
-                      <ButtonMember type="button">Not a Member</ButtonMember>
+                      <ButtonMember type="button">
+                        Active Member
+                      </ButtonMember>
                     ) : (
                       <ButtonMember
                         type="button"
-                        onClick={() => {
-                          dispatch(leaveMission(mission.mission_id));
-                        }}
                       >
-                        Active Member
+                        Not a Member
                       </ButtonMember>
                     )
                   }
@@ -165,7 +168,15 @@ const Mission = () => {
                   {
                     mission.reserved ? (
 
-                      <ButtonJoin type="button">Leave Mission</ButtonJoin>
+                      <ButtonJoin
+                        type="button"
+                        onClick={() => {
+                          dispatch(leaveMission(mission.mission_id));
+                        }}
+                      >
+                        Leave Mission
+
+                      </ButtonJoin>
                     ) : (
                       <ButtonJoin
                         type="button"
@@ -187,4 +198,4 @@ const Mission = () => {
   );
 };
 
-export default Mission;
+export default memo(Mission);
