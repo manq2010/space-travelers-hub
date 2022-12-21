@@ -3,14 +3,9 @@ import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 const LogoContainer = styled.h1`
-  // display: none;
   display: flex;
   font-family: "Montserrat",sans-serif;
   color: #0290ff;
-  // margin-top: 2.5rem;
-  // margin-left: 4%;
-  // margin-bottom: 2.5rem;
-  // height: 3rem;
 
 @media (min-width: 768px) {
     display: flex;
@@ -18,11 +13,10 @@ const LogoContainer = styled.h1`
 `;
 
 const LogoImage = styled.img`
-  // margin-top: 3rem;
-  height: 100px;
-  width: 100px;
+  height: 4rem;
+  width: 4rem;
   align-items: center;
-  margin-right: 0.5rem;
+  margin-left: 1rem;
 `;
 
 const LogoText = styled.h3`

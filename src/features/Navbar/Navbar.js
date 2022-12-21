@@ -2,44 +2,30 @@ import React from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
 import styled from 'styled-components';
 import Logo from '../Logo/Logo';
-// import Footer from '../Footer/Footer';
-
-// const Button = styled.button`
-//   display: block;
-//   width: fit-content;
-//   margin: 1rem 0 1rem 4%;
-//   cursor: pointer;
-//   z-index: 2;
-//   color: #3fffd2;
-
-// @media (min-width: 768px) {
-//   display: none;
-// }
-// `;
 
 const NavBar = styled.nav`
 display: flex;
 flex-direction: row;
-justify-content: space-around;
-height: 10rem;
+justify-content: space-between;
+height: 5rem;
 align-items: center;
+border-bottom: 1px solid gray
 `;
 
 const MenuNavUL = styled.ul`
   list-style: none;
   position: relative;
   color: #121212;
-    display: flex;
-    gap: 1rem;
-    margin-top: 0;
-    align-items: center;
-    justify-content: space-between;
-    height: 2.5rem;
-    opacity: .5;
-    font-family: "Montserrat",sans-serif;
-    font-size: .813rem;
-    color: #121212;
-    letter-spacing: 1.9px;
+  display: flex;
+  gap: 1rem;
+  margin-top: 0;
+  align-items: center;
+  justify-content: space-between;
+  height: 2.5rem;
+  opacity: .5;
+  font-family: "Montserrat",sans-serif;
+  font-size: .813rem;
+  letter-spacing: 1.9px;
 
 `;
 
