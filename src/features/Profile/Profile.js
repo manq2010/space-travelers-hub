@@ -137,7 +137,7 @@ const Profile = () => {
             <JoinedItem key={rocket.id}>
               <ReadMore>
                 <div>
-                  <MissionName className='mission_name'>{rocket.name}</MissionName>
+                  <MissionName className="mission_name">{rocket.name}</MissionName>
                 </div>
                 <div>
                   <ReadMoreButton

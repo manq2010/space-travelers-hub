@@ -71,7 +71,6 @@ const ButtonInactive = styled(ButtonMember)`
 background-color: rgb(148, 148, 148);
 `;
 
-
 const ButtonLeave = styled.button`
 background-color: #fff;
 border: 1px solid rgb(148, 148, 148);
@@ -172,7 +171,7 @@ const Mission = () => {
                 <StatusBtnContainer>
                   {
                     mission.reserved ? (
-                      <ButtonMember type="button" > 
+                      <ButtonMember type="button">
                         Active Member
                       </ButtonMember>
                     ) : (
@@ -190,7 +189,7 @@ const Mission = () => {
 
                       <ButtonJoin
                         type="button"
-                        className='leave_button'
+                        className="leave_button"
                         onClick={() => {
                           dispatch(leaveMission(mission.mission_id));
                         }}

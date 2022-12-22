@@ -54,15 +54,13 @@ const Navbar = () => {
     },
   ];
 
-  const navLinkStyles = ({ isActive }) => {
-    return {
-      fontWeight: isActive ? 'bold' : 'bold',
-      color: isActive ? 'white' : 'rgb(4, 118, 248)',
-      backgroundColor: isActive ? 'rgb(4, 118, 248)' : 'white',
-      padding: isActive ? '0.5rem' : '0',
-      borderRadius: isActive ? '0.2rem' : '0',
-    }
-  }
+  const navLinkStyles = ({ isActive }) => ({
+    fontWeight: isActive ? 'bold' : 'bold',
+    color: isActive ? 'white' : 'rgb(4, 118, 248)',
+    backgroundColor: isActive ? 'rgb(4, 118, 248)' : 'white',
+    padding: isActive ? '0.5rem' : '0',
+    borderRadius: isActive ? '0.2rem' : '0',
+  });
 
   return (
     <>
