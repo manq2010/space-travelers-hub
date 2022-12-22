@@ -14,11 +14,11 @@ function Rocket({
 }) {
   return (
     <RocketsContainer>
-      <img src={image} alt="rocket" className='rocket_image' />
-      <div className='description_section'>
-        <h1 className='rocket_name'>{name}</h1>
-        <p className='rocket_description'>
-          {reserved && <span className='reserved_span'>Reserved</span>}
+      <img src={image} alt="rocket" className="rocket_image" />
+      <div className="description_section">
+        <h1 className="rocket_name">{name}</h1>
+        <p className="rocket_description">
+          {reserved && <span className="reserved_span">Reserved</span>}
           {' '}
           {description}
         </p>
