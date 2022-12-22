@@ -27,10 +27,20 @@ const Profile = () => {
 
   const joinedMission = missions.filter((mission) => mission.reserved === true);
 
+  let missionContent = false;
+
+  if (joinedMission.length === 0) {
+    missionContent = true;
+  }
+
   return (
     <ProfileContainer>
       <ProfileCard>
         <h2>My Missions</h2>
+        {
+          missionContent
+            ? (<h3>no missions joined</h3>) : ('')
+        }
         <ProfileCardDetails>
           {
             joinedMission.map((mission) => (
