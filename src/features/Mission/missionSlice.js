@@ -26,6 +26,7 @@ export const fetchMissions = createAsyncThunk(
       mission_id: mission.mission_id,
       mission_name: mission.mission_name,
       description: mission.description,
+      wikipedia: mission.wikipedia,
     }));
 
     return missions.slice().sort((a, b) => a.mission_id - b.mission_id);

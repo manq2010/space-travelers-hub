@@ -20,13 +20,20 @@ border 1px solid gray;
 
 const JoinedItem = styled.div`
 border-bottom: 1px solid gray;
-padding: 1rem;
+padding: 0 0.5rem 0.5rem 0.5rem;
 display: flex;
 justify-content: space-between;
+align-items: center;
 gap: 0.5rem;
 `;
 const ButtonLeaveMission = styled.button`
 
+`;
+
+const ReadMore = styled.div`
+display: flex;
+flex-direction: column;
+justify-content: center;
 `;
 
 const Profile = () => {
@@ -36,8 +43,11 @@ const Profile = () => {
 
   const joinedMission = missions.filter((mission) => mission.reserved === true);
 
-  let missionContent = false;
+  const openInNewTab = (url) => {
+    window.open(url, '_blank', 'noreferrer');
+  };
 
+  let missionContent = false;
   if (joinedMission.length === 0) {
     missionContent = true;
   }
@@ -53,9 +63,23 @@ const Profile = () => {
           {
             joinedMission.map((mission) => (
               <JoinedItem key={mission.mission_id}>
-                <div>
-                  {mission.mission_name}
-                </div>
+                <ReadMore>
+                  <div>
+                    <h4>
+                      {mission.mission_name}
+                    </h4>
+                  </div>
+                  <div>
+                    <button
+                      type="button"
+                      role="link"
+                      onClick={() => openInNewTab(mission.wikipedia)}
+                    >
+                      Read More
+                    </button>
+                  </div>
+
+                </ReadMore>
                 <div>
                   <ButtonLeaveMission
                     type="button"
@@ -64,7 +88,6 @@ const Profile = () => {
                     }}
                   >
                     Leave Mission
-
                   </ButtonLeaveMission>
                 </div>
               </JoinedItem>
