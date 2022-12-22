@@ -40,7 +40,6 @@ justify-content: center;
 const Profile = () => {
   const missions = useSelector((state) => state.missionReducer.missions);
   const rockets = useSelector((state) => state.rocketReducer);
-  console.log(rockets);
 
   const dispatch = useDispatch();
 
@@ -117,25 +116,25 @@ const Profile = () => {
                   <h4>{rocket.name}</h4>
                 </div>
                 <div>
-                    <button
-                      type="button"
-                      role="link"
-                      onClick={() => openInNewTab(rocket.wikipedia)}
-                    >
-                      Read More
-                    </button>
-                  </div>
+                  <button
+                    type="button"
+                    role="link"
+                    onClick={() => openInNewTab(rocket.wikipedia)}
+                  >
+                    Read More
+                  </button>
+                </div>
               </ReadMore>
               <div>
-                  <ButtonLeaveMission
-                    type="button"
-                    onClick={() => {
-                      dispatch(cancelRocket(rocket.id));
-                    }}
-                  >
-                    Cancel Rocket
-                  </ButtonLeaveMission>
-                </div>
+                <ButtonLeaveMission
+                  type="button"
+                  onClick={() => {
+                    dispatch(cancelRocket(rocket.id));
+                  }}
+                >
+                  Cancel Rocket
+                </ButtonLeaveMission>
+              </div>
             </JoinedItem>
           ))}
         </ProfileCardDetails>
