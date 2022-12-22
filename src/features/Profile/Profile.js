@@ -11,12 +11,13 @@ justify-content: space-around;
 `;
 
 const ProfileCard = styled.div`
-
+font-family: 'Montserrat', sans-serif;
 `;
 
 const ProfileCardDetails = styled.div`
 border-radius: 6px;
 border 1px solid gray;
+min-width: 20rem;
 `;
 
 const JoinedItem = styled.div`
@@ -27,14 +28,37 @@ justify-content: space-between;
 align-items: center;
 gap: 0.5rem;
 `;
-const ButtonLeaveMission = styled.button`
-
+const ButtonLeave = styled.button`
+font-family: 'Montserrat', sans-serif;
+width: fit-content;
+font-size: 0.8rem;
+padding: 0.6rem 1rem 0.6rem 1rem;
+border-radius: 0.3rem;
+border: 1px solid black;
+background-color: #fff;
+color: black;
 `;
 
 const ReadMore = styled.div`
 display: flex;
 flex-direction: column;
 justify-content: center;
+`;
+
+const MissionName = styled.h4`
+font-family: 'Montserrat', sans-serif;
+font-size: 1rem;
+`;
+
+const ReadMoreButton = styled.button`
+font-family: 'Montserrat', sans-serif;
+width: fit-content;
+font-size: 0.8rem;
+padding: 0.6rem 1rem 0.6rem 1rem;
+border-radius: 0.3rem;
+border: none;
+background-color: rgb(4, 118, 248);
+color: #fff;
 `;
 
 const Profile = () => {
@@ -73,30 +97,30 @@ const Profile = () => {
               <JoinedItem key={mission.mission_id}>
                 <ReadMore>
                   <div>
-                    <h4>
+                    <MissionName>
                       {mission.mission_name}
-                    </h4>
+                    </MissionName>
                   </div>
                   <div>
-                    <button
+                    <ReadMoreButton
                       type="button"
                       role="link"
                       onClick={() => openInNewTab(mission.wikipedia)}
                     >
                       Read More
-                    </button>
+                    </ReadMoreButton>
                   </div>
 
                 </ReadMore>
                 <div>
-                  <ButtonLeaveMission
+                  <ButtonLeave
                     type="button"
                     onClick={() => {
                       dispatch(leaveMission(mission.mission_id));
                     }}
                   >
                     Leave Mission
-                  </ButtonLeaveMission>
+                  </ButtonLeave>
                 </div>
               </JoinedItem>
             ))
@@ -113,27 +137,27 @@ const Profile = () => {
             <JoinedItem key={rocket.id}>
               <ReadMore>
                 <div>
-                  <h4>{rocket.name}</h4>
+                  <MissionName className='mission_name'>{rocket.name}</MissionName>
                 </div>
                 <div>
-                  <button
+                  <ReadMoreButton
                     type="button"
                     role="link"
                     onClick={() => openInNewTab(rocket.wikipedia)}
                   >
                     Read More
-                  </button>
+                  </ReadMoreButton>
                 </div>
               </ReadMore>
               <div>
-                <ButtonLeaveMission
+                <ButtonLeave
                   type="button"
                   onClick={() => {
                     dispatch(cancelRocket(rocket.id));
                   }}
                 >
                   Cancel Rocket
-                </ButtonLeaveMission>
+                </ButtonLeave>
               </div>
             </JoinedItem>
           ))}
