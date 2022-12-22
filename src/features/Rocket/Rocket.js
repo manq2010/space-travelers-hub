@@ -1,26 +1,37 @@
-import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchRocket } from './RocketSlice';
+import { useEffect } from 'react';
+import { reserveRocket, cancelRocket, fetchRocket } from './RocketSlice';
+import Rocket from './rock';
 
 const Rockets = () => {
   const rockets = useSelector((state) => state.rocketReducer);
-  // console.log(rockets);
 
   const dispatch = useDispatch();
 
-  dispatch(fetchRocket());
+  useEffect(() => {
+    dispatch(fetchRocket());
+  }, []);
+
+  const handleReservedRocket = (id) => {
+    dispatch(reserveRocket(id));
+  };
+
+  const handleCancelRocket = (id) => {
+    dispatch(cancelRocket(id));
+  };
 
   return (
     <div>
       {rockets.map((rocket) => (
-        <div key={rocket.id}>
-          <img src={rocket.flickrImages} alt="rocket" />
-          <div>
-            <h1>{rocket.name}</h1>
-            <p>{rocket.description}</p>
-            <button type="button">Reserve</button>
-          </div>
-        </div>
+        <Rocket
+          key={rocket.id}
+          name={rocket.name}
+          description={rocket.description}
+          image={rocket.flickr_images}
+          reserved={rocket.reserved}
+          reservedRocket={() => handleReservedRocket(rocket.id)}
+          cancelRocket={() => handleCancelRocket(rocket.id)}
+        />
       ))}
     </div>
   );
