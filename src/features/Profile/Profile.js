@@ -2,6 +2,7 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import styled from 'styled-components';
 import { leaveMission } from '../Mission/missionSlice';
+import { cancelRocket } from '../Rocket/RocketSlice';
 
 const ProfileContainer = styled.div`
 display: flex;
@@ -38,10 +39,12 @@ justify-content: center;
 
 const Profile = () => {
   const missions = useSelector((state) => state.missionReducer.missions);
+  const rockets = useSelector((state) => state.rocketReducer);
 
   const dispatch = useDispatch();
 
   const joinedMission = missions.filter((mission) => mission.reserved === true);
+  const reservedRocket = rockets.filter((rocket) => rocket.reserved === true);
 
   const openInNewTab = (url) => {
     window.open(url, '_blank', 'noreferrer');
@@ -50,6 +53,11 @@ const Profile = () => {
   let missionContent = false;
   if (joinedMission.length === 0) {
     missionContent = true;
+  }
+
+  let rocketContent = false;
+  if (reservedRocket.length === 0) {
+    rocketContent = true;
   }
 
   return (
@@ -97,6 +105,39 @@ const Profile = () => {
       </ProfileCard>
       <ProfileCard>
         <h2>My Rockets</h2>
+        {
+          rocketContent ? (<h3>no rockets reserved</h3>) : ('')
+        }
+        <ProfileCardDetails>
+          {reservedRocket.map((rocket) => (
+            <JoinedItem key={rocket.id}>
+              <ReadMore>
+                <div>
+                  <h4>{rocket.name}</h4>
+                </div>
+                <div>
+                  <button
+                    type="button"
+                    role="link"
+                    onClick={() => openInNewTab(rocket.wikipedia)}
+                  >
+                    Read More
+                  </button>
+                </div>
+              </ReadMore>
+              <div>
+                <ButtonLeaveMission
+                  type="button"
+                  onClick={() => {
+                    dispatch(cancelRocket(rocket.id));
+                  }}
+                >
+                  Cancel Rocket
+                </ButtonLeaveMission>
+              </div>
+            </JoinedItem>
+          ))}
+        </ProfileCardDetails>
       </ProfileCard>
     </ProfileContainer>
   );
