@@ -22,18 +22,14 @@ const MenuNavUL = styled.ul`
   align-items: center;
   justify-content: space-between;
   height: 2.5rem;
-  opacity: .5;
   font-family: "Montserrat",sans-serif;
   font-size: .813rem;
   letter-spacing: 1.9px;
-
+  margin-right: 5rem;
 `;
 
 const MenuLI = styled.li`
-  // margin: 1.5rem 0 1rem 1rem;
-  // text-transform: uppercase;
   font-weight: bold;
-  color: #000;
   a:link {
     text-decoration: none;
   }
@@ -57,6 +53,15 @@ const Navbar = () => {
       text: 'My Profile',
     },
   ];
+
+  const navLinkStyles = ({ isActive }) => ({
+    fontWeight: isActive ? 'bold' : 'bold',
+    color: isActive ? 'white' : 'rgb(4, 118, 248)',
+    backgroundColor: isActive ? 'rgb(4, 118, 248)' : 'white',
+    padding: isActive ? '0.5rem' : '0',
+    borderRadius: isActive ? '0.2rem' : '0',
+  });
+
   return (
     <>
       <NavBar>
@@ -64,7 +69,7 @@ const Navbar = () => {
         <MenuNavUL>
           {links.map((link) => (
             <MenuLI key={link.id} aria-hidden="true">
-              <NavLink data-testid={link.text} to={link.path}>
+              <NavLink style={navLinkStyles} data-testid={link.text} to={link.path}>
                 {link.text}
               </NavLink>
             </MenuLI>

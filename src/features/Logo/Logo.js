@@ -5,7 +5,7 @@ import styled from 'styled-components';
 const LogoContainer = styled.h1`
   display: flex;
   font-family: "Montserrat",sans-serif;
-  color: #0290ff;
+  color: rgb(4, 118, 248);
 
 @media (min-width: 768px) {
     display: flex;
@@ -21,7 +21,8 @@ const LogoImage = styled.img`
 
 const LogoText = styled.h3`
 display: none;
-font-size: 1.2rem;
+font-size: 1.5rem;
+padding-left: 1rem;
 justify-content: center;
 align-items: center;
 
