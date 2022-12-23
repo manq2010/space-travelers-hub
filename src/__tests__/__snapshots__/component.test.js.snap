@@ -1,0 +1,117 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HomePage component is rendererd matches snapshot 1`] = `
+<div>
+  <div
+    className="sc-dIfARi eOvQBd"
+  >
+    <div
+      className="sc-hHTYSt iPKwjX"
+    >
+      <h2>
+        My Missions
+      </h2>
+      <h3>
+        no missions joined
+      </h3>
+      <div
+        className="sc-dmctIk hkmTTW"
+      />
+    </div>
+    <div
+      className="sc-hHTYSt iPKwjX"
+    >
+      <h2>
+        My Rockets
+      </h2>
+      <h3>
+        no rockets reserved
+      </h3>
+      <div
+        className="sc-dmctIk hkmTTW"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Mission component is rendererd matches snapshot 1`] = `
+<div
+  className="sc-bcXHqe bhFXJA"
+>
+  <ul
+    className="sc-gswNZR hROBrh"
+  >
+    <li
+      className="sc-dkrFOg eQyQvm"
+    >
+      <h4
+        className="sc-hLBbgP sc-eDvSVe huPzVN ghLCpJ"
+      >
+        Mission
+      </h4>
+      <h4
+        className="sc-hLBbgP sc-jSUZER huPzVN dMmJdR"
+      >
+        Description
+      </h4>
+      <h4
+        className="sc-hLBbgP huPzVN"
+      >
+        Status
+      </h4>
+      <h4
+        className="sc-hLBbgP huPzVN"
+      />
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`Not-found page is rendered matches snapshot 1`] = `
+<div
+  className="sc-idXgbr cgkRCq"
+>
+  <h3>
+    404!
+  </h3>
+  <p>
+    Oops Page
+     
+    <em>
+      Not
+    </em>
+     
+    Found!
+  </p>
+</div>
+`;
+
+exports[`Rockets component is rendererd matches snapshot 1`] = `
+<li
+  className="sc-lllmON grOwqX"
+>
+  <img
+    alt="rocket"
+    className="rocket_image"
+  />
+  <div
+    className="description_section"
+  >
+    <h1
+      className="rocket_name"
+    />
+    <p
+      className="rocket_description"
+    >
+       
+    </p>
+    <button
+      className="rocket_button reserve_button"
+      type="button"
+    >
+      Reserve Rocket
+    </button>
+  </div>
+</li>
+`;

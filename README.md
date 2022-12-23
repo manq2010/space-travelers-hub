@@ -55,9 +55,9 @@ After you're finished please remove all the comments and instructions!
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 Project <a name="about-project"></a>
+# 📖 Space Travelers' Hub <a name="about-project"></a>
 
-> "Project"
+> In this task, you will be working with the real live data from the SpaceX API. Your task is to build a web application for a company that provides commercial and scientific space travel services. The application will allow users to book rockets and join selected space missions.
 
 ## 🛠 Built With <a name="built-with"></a>
 - HTML
@@ -82,7 +82,7 @@ After you're finished please remove all the comments and instructions!
 
 > Using the project will help you to : 
 
-- **Be able so do basic calculations**
+- **To book rockects and join a selected mission**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -90,7 +90,7 @@ After you're finished please remove all the comments and instructions!
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Live Demo Link]()
+- [Live Demo Link](https://react-space-traveler-hub.onrender.com/)
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -112,7 +112,7 @@ In order to run this project you need:
 ### Setup
 
 Clone this repository by using the command line : 
-- `git clone https://github.com/manq2010/<repo>`
+- `git clone https://github.com/manq2010/space-travelers-hub`
 
 ### Install
 
@@ -150,6 +150,12 @@ You can deploy this project using:
 - Twitter: [@mancoba_c](https://twitter.com/mancoba_c/)
 - LinkedIn: [mancobasihlongonyane](https://linkedin.com/in/mancobasihlongonyane/)
 
+👤 **Jonathan Munamire**
+
+- GitHub: [@jonathanmunamire](https://github.com/jonathanmunamire)
+- Twitter: [@amanimunamire](https://twitter.com/amanimunamire/)
+- LinkedIn: [jonathanmunamire](https://www.linkedin.com/in/jonathanmunamire/)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- FUTURE FEATURES -->
@@ -157,7 +163,7 @@ You can deploy this project using:
 ## 🔭 Future Features <a name="future-features"></a>
 
 
-- **Use Fragments and more hooks ⏳⌛️**
+- **Complete entire project using slices**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -183,7 +189,7 @@ Give a ⭐️ if you like this project!
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-- Thank you [Microverse](https://www.microverse.org/) for the project
+- Thank you [Microverse](https://www.microverse.org/) for the project and the API documentation
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -194,7 +200,7 @@ Give a ⭐️ if you like this project!
 
 - **How to use the project**
 
-  - ```git clone https://github.com/manq2010/math-magicians```
+  - ```git clone https://github.com/manq2010/space-travelers-hub```
 
 - **How to contribute to the project**
 
