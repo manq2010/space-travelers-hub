@@ -1,5 +1,5 @@
 // Import React deps:
-import React, { StrictMode } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
 import store from './features/configureStore';
@@ -13,12 +13,12 @@ store.dispatch(fetchRocket());
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <StrictMode>
+  <React.StrictMode>
     {/* Add Redux provider */}
     <Provider store={store}>
       <App />
     </Provider>
-  </StrictMode>,
+  </React.StrictMode>,
 );
 
 // If you want to start measuring performance in your app, pass a function

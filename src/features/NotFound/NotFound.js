@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const NotFoundContainer = styled.div`
@@ -19,7 +18,7 @@ const NotFound = () => (
       {' '}
       Found!
     </p>
-    <Link to="/">Back to home</Link>
+    {/* <Link to="/">Back to home</Link> */}
   </NotFoundContainer>
 );
 
