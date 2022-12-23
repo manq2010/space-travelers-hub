@@ -8,6 +8,7 @@ import AppRoutes from '../Routes';
 import NotFound from '../features/NotFound/NotFound';
 import MyProfilePage from '../pages/MyProfilePage';
 import store from '../features/configureStore';
+import Rocket from '../features/Rocket/rock';
 
 // Routing test
 
@@ -97,6 +98,27 @@ describe('Mission component is rendererd', () => {
     const tree = renderer.create(
       <Provider store={store}>
         <Mission />
+      </Provider>,
+    ).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+});
+
+describe('Rockets component is rendererd', () => {
+  test('Component is rendererd', () => {
+    render(
+      <Provider store={store}>
+        <Rocket />
+      </Provider>,
+    );
+    const container = screen.getByText(/Reserve Rocket/);
+    expect(container).toBeInTheDocument();
+  });
+
+  test('matches snapshot', () => {
+    const tree = renderer.create(
+      <Provider store={store}>
+        <Rocket />
       </Provider>,
     ).toJSON();
     expect(tree).toMatchSnapshot();
